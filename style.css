@@ -66,7 +66,11 @@
     width: 100%;       /* full width */
     margin: 1rem 0;    /* spacing top & bottom */
   }
-
+.description {
+    font-size: 1.7rem;      /* slightly bigger text */
+    line-height: 1.6;       /* more vertical space */
+    margin-bottom: 1rem;    /* extra spacing below */
+  }
   .description, .sub-description {
     width: 100%;       /* full width text */
   }
