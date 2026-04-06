@@ -55,23 +55,37 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* optional shadow */
 }
 
-/* Responsive: mobile version */
+/* Mobile: stack content vertically with screenshot in middle */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column; /* stack items vertically */
+    flex-direction: column; /* stack vertically */
+    gap: 1rem; /* smaller gap for better spacing */
   }
 
+  /* Description row */
+  .description {
+    order: 0;        /* first row */
+    width: 100%;
+    margin-bottom: 2rem; /* space below description */
+  }
+
+  /* Screenshot row */
   .right {
-    order: 1;          /* moves screenshot between description and sub-description */
-    width: 100%;       /* full width */
-    margin: 1rem 0;    /* spacing top & bottom */
+    order: 1;        /* second row */
+    width: 100%;
+    margin: 0 auto 1rem auto;
   }
-.description {
-    font-size: 1.7rem;      /* slightly bigger text */
-    line-height: 2.6;       /* more vertical space */
-    margin-bottom: 1rem;    /* extra spacing below */
-  }
+
+  /* Sub-description row */
   .sub-description {
-    width: 100%;       /* full width text */
+    order: 2;        /* third row */
+    width: 100%;
+  }
+
+  /* Left section other content (form, social) */
+  .left .waitlist-form,
+  .left .social {
+    order: 3;        /* last row */
+    width: 100%;
   }
 }
