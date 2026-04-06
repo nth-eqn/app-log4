@@ -18,48 +18,22 @@ body {
   font-size: 0.95rem;
   color: #777;         /* soft grey */
   margin-bottom: 20px;
-}.container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
 }
 
-/* Desktop: left + right side by side */
-.left {
-  flex: 1;
-  min-width: 300px;
-}
-
-.right {
-  flex: 1;
+.container {
   display: flex;
   justify-content: center;
-  min-width: 300px;
-}
-
-.right img.screenshot {
-  width: 100%;       /* fill container */
-  max-width: 700px;  /* large on desktop */
-  height: auto;
-  display: block;
+  align-items: center;
+  gap: 100px;   /* more balanced spacing */
+  min-height: 100vh;
+  max-width: 1000px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* Mobile: stack content vertically, screenshot between description and sub-description */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column; /* stack items vertically */
-  }
-
-  .right {
-    order: 1;             /* moves screenshot between description and sub-description */
-    width: 100%;          /* full width */
-    margin: 1rem 0;       /* spacing above/below */
-  }
-
-  .description, .sub-description {
-    width: 100%;          /* full width text */
-  }
+/* Left section */
+.left {
+  max-width: 500px;
 }
 
 /* App icon + title side by side */
@@ -167,22 +141,50 @@ body {
   opacity: 0.40;   /* makes it grey-ish */
 }
 
-/* Right section: screenshot */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Desktop: left + right side by side */
+.left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 300px;
+}
+
 .right img.screenshot {
-  width: 100%;
-  max-width: 700px;   /* larger on desktop */
+  width: 100%;       /* fill container */
+  max-width: 700px;  /* large on desktop */
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
-
-
+/* Mobile: stack content vertically, screenshot between description and sub-description */
+@media (max-width: 768px) {
   .container {
-    display: flex;
-    flex-direction: column; /* stack left + right vertically */
+    flex-direction: column; /* stack items vertically */
+  }
+
+  .right {
+    order: 1;             /* moves screenshot between description and sub-description */
+    width: 100%;          /* full width */
+    margin: 1rem 0;       /* spacing above/below */
+  }
+
+  .description, .sub-description {
+    width: 100%;          /* full width text */
   }
 }
+
 
 .screenshot {
   width: 100%;        /* smaller than before */
