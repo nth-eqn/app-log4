@@ -10,25 +10,75 @@
   <div class="container">
     <!-- Left side -->
     <div class="left">
-      <img src="icon.png" alt="App Icon" class="app-icon">
-      <h1>My Awesome App</h1>
-      <p class="description">Track your habits and stay productive.</p>
-      <p class="sub-description">Join our early access waitlist to get notified!</p>
+      <!-- App icon + title -->
+      <div class="icon-title">
+        <img src="appicon.JPG" alt="App Icon" class="app-icon">
+        <h1 class="app-title">Log 4</h1>
+      </div>
+<p class="description">
+  A <span class="gradient-word">gradient</span> calendar view of your daily tasks.
+</p>
+      <p class="sub-description"> 
+        <strong>Imagine</strong>  your Dream Life.  <br> 
+        <strong>Prioritise</strong> your goals. <br> 
+        <strong>Define</strong> daily tasks. <br> 
+        <strong>Execute</strong>. <br> 
+        <br> But allow yourself not to complete all of them every day.</p>
 
-      <form class="waitlist-form">
-        <input type="email" placeholder="Enter your email" required>
-        <button type="submit">Join Waitlist</button>
+      <!-- Email input + button integrated -->
+      <form id="waitlist-form" class="waitlist-form">
+        <div class="input-button-wrapper">
+          <input type="email" name="email" placeholder="Enter your email" required>
+          <button type="submit">Join Waitlist</button>
+        </div>
       </form>
+      <p id="thankyou" style="display:none;">Thank you for joining!</p>
 
+      <!-- TikTok with icon -->
       <p class="social">
-        Follow us on <a href="https://www.tiktok.com/@yourtiktok">TikTok</a>
+        Follow 
+        <a href="https://www.tiktok.com/@ntheqn?">@ntheqn</a>
+        on 
+        <span class="tiktok-inline">
+          <img src="tiktok.png" alt="TikTok" class="social-icon">
+        </span>
+        for updates
       </p>
     </div>
 
-    <!-- Right side -->
+    <!-- Right side: large screenshot -->
     <div class="right">
       <img src="simulator_screenshot.png" alt="iPhone Screenshot" class="screenshot">
     </div>
   </div>
+
+  <script>
+    // -------------------------
+    // Constants for Google Form
+    // -------------------------
+    const formUrl = 'https://docs.google.com/forms/d/1sjv8Oi_iMPeYRGCFN9QCmHjdCDzTAiUiithfM2aRN-Y/formResponse'; 
+    const entryId = 'entry.366067903'; // replace with your email field entry ID
+
+    // Get form and thank you message elements
+    const form = document.getElementById('waitlist-form');
+    const thankyou = document.getElementById('thankyou');
+
+    // Handle form submission
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const email = form.email.value;
+
+      fetch(formUrl, {
+        method: 'POST',
+        mode: 'no-cors', // prevents browser from blocking
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `${entryId}=${encodeURIComponent(email)}`
+      });
+
+      // Show thank you message
+      form.style.display = 'none';
+      thankyou.style.display = 'block';
+    });
+  </script>
 </body>
 </html>
