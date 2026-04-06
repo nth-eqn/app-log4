@@ -143,11 +143,26 @@ body {
 
 /* Right section: screenshot */
 .right img.screenshot {
-  width: 90%;       /* fills the container */
-  max-width: 600px;  /* increase from 490px to make it larger */
-  height: auto;      /* maintain aspect ratio */
-  display: block;    /* removes any inline spacing issues */
-  margin: 0 auto;    /* center it horizontally if needed */
+  width: 100%;
+  max-width: 700px;   /* larger on desktop */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* For smaller screens (phones) */
+@media (max-width: 768px) {
+  /* Move the screenshot between description and sub-description */
+  .right {
+    order: 1;         /* default flex order if container is flex */
+    width: 100%;      /* take full width */
+    margin: 1rem 0;   /* spacing above and below */
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column; /* stack left + right vertically */
+  }
 }
 
 .screenshot {
