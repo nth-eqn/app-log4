@@ -161,3 +161,63 @@ body {
   -webkit-text-fill-color: transparent;
   font-weight: bold; /* optional to emphasize */
 }
+
+/* 📱 Mobile (iPhone) adjustments */
+@media (max-width: 768px) {
+
+  .container {
+    flex-direction: column;   /* stack vertically */
+    gap: 30px;
+    text-align: center;
+  }
+
+  .left {
+    max-width: 100%;
+  }
+
+  /* 👇 Move screenshot BETWEEN description and sub-description */
+  .right {
+    order: 2;
+  }
+
+  .description {
+    order: 1;
+  }
+
+  .sub-description {
+    order: 3;
+  }
+
+  /* To make ordering work, wrap these in a parent flex column */
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 📏 Fix headline size + allow 4 lines */
+  .description {
+    font-size: 2rem;              /* smaller for mobile */
+    max-width: 100%;
+    line-height: 1.4;
+
+    -webkit-line-clamp: 4;        /* allow 4 lines instead of 3 */
+  }
+
+  /* 📄 Improve readability */
+  .sub-description {
+    max-width: 90%;
+    font-size: 0.9rem;
+  }
+
+  /* 📸 Screenshot sizing */
+  .screenshot {
+    max-width: 260px;
+    margin: 15px 0;
+  }
+
+  /* 📩 Input width full */
+  .input-button-wrapper {
+    max-width: 100%;
+  }
+}
