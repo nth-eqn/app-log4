@@ -1,158 +1,43 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #fff;
-  color: #000;
-}
-
-.description {
-  font-size: 1.5rem;   /* clearly bigger */
-  font-weight: 500;
-  color: #111;
-  margin-top: 10px;
-  margin-bottom: 0.3rem;  
-}
-.sub-description {
-  margin-top: 0.2;
-  font-size: 0.95rem;
-  color: #777;         /* soft grey */
-  margin-bottom: 20px;
-}
-
+/* Container layout */
 .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 100px;   /* more balanced spacing */
-  min-height: 100vh;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap; /* allows responsive stacking */
 }
 
 /* Left section */
-.left {
-  max-width: 500px;
-}
-
-/* App icon + title side by side */
-.icon-title {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.app-icon {
-  width: 60px;
-  height: 60px;
-}
-
-.app-title {
-  font-size: 2rem;
-  margin: 0;
-}
-
-/* Description texts */
-.description {
-  font-size: 3.2rem;          /* large headline */
-  font-weight: 400;           /* normal weight, not bold */
-  color: #111;
-  margin-top: 15px;
-  line-height: 1.3;           /* comfortable spacing */
-  max-width: 420px;           /* keeps width fixed */
-  
-  display: -webkit-box;
-  -webkit-line-clamp: 3;      /* allow up to 3 lines */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.sub-description {
-  max-width: 300px; /* or any width that looks good */
-  word-wrap: break-word; /* ensures long words break nicely */
-}
-
-/* Email input + integrated button */
-.input-button-wrapper {
-  display: flex;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  overflow: hidden;
-  width: 100%;
-  max-width: 370px; 
-  
-}
-
-.input-button-wrapper input {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  outline: none;
-}
-
-.input-button-wrapper button {
-  padding: 10px 15px;
-  border: none;
-  background-color: #5605f9;
-  color: white;
-  cursor: pointer;
-}
-
-.input-button-wrapper button:hover {
-  background-color: #f7f462;
-}
-
-/* Thank you message */
-#thankyou {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-/* TikTok link with icon */
-.social {
-  margin-top: 15px;
-  font-size: 0.9rem;
-  color: #a8a8ad;   /* consistent grey */
-}
-
-.social a {
-  color: #a8a8ad;   /* same grey for username */
-  text-decoration: none;
-}
-
-.social a:hover {
-  text-decoration: underline;
-}
-
-/* TikTok inline block */
-.tiktok-inline {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: #a8a8ad;   /* ensures text is grey */
-}
-
-/* Make icon grey */
-.social-icon {
-  width: 11px;
-  height: 11px;
-  opacity: 0.40;   /* makes it grey-ish */
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-/* Desktop: left + right side by side */
 .left {
   flex: 1;
   min-width: 300px;
 }
 
+/* Description styling */
+.description {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+
+/* Sub-description styling */
+.sub-description {
+  margin-top: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #555;
+}
+
+/* Gradient word */
+.gradient-word {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+/* Screenshot styling */
 .right {
   flex: 1;
   display: flex;
@@ -161,39 +46,28 @@ body {
 }
 
 .right img.screenshot {
-  width: 100%;       /* fill container */
-  max-width: 700px;  /* large on desktop */
+  width: 100%;
+  max-width: 700px;   /* increases size on desktop */
   height: auto;
   display: block;
   margin: 0 auto;
+  border-radius: 20px;   /* optional styling */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* optional shadow */
 }
 
-/* Mobile: stack content vertically, screenshot between description and sub-description */
+/* Responsive: mobile version */
 @media (max-width: 768px) {
   .container {
     flex-direction: column; /* stack items vertically */
   }
 
   .right {
-    order: 1;             /* moves screenshot between description and sub-description */
-    width: 100%;          /* full width */
-    margin: 1rem 0;       /* spacing above/below */
+    order: 1;          /* moves screenshot between description and sub-description */
+    width: 100%;       /* full width */
+    margin: 1rem 0;    /* spacing top & bottom */
   }
 
   .description, .sub-description {
-    width: 100%;          /* full width text */
+    width: 100%;       /* full width text */
   }
-}
-
-
-.screenshot {
-  width: 100%;        /* smaller than before */
-  max-width: 320px;  /* prevents it from getting too large */
-  border-radius: 20px;
-}
-.gradient-word {
-  background: linear-gradient(325deg, #4d2ad8, #fefb41); /* gradient colors */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold; /* optional to emphasize */
 }
